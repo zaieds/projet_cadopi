@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+
+<body>
+<!-- Include _menu.html -->
+<th:block th:include="/_menu"></th:block>
+<form th:action="@{/logout}" method="post">
+    <label>Êtes-vous sûr(e) de vouloir vous déconnecter ?</label><input type="submit" value="se déconnecter"/>
+</form>
+</body>
+
+</html>

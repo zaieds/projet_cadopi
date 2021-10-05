@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Historique</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<style>
+.container.bg-light {
+	background: #ecf0f1;
+	margin-top: 5%;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+td, th /* Mettre une bordure sur les td ET les th */ {
+	border: 1px solid black;
+}
+</style>
+</head>
+<body>
+	<!-- Include _menu.html -->
+	<th:block th:include="/_menu"></th:block>
+		
+		<div class="container-fluid bg-light form-group">
+			<h4>Historique de chargement des fichiers individus</h4>
+		<table id="opiList_indiv" class="table table-bordered table-striped">
+			<thead class= "thead-dark">
+				<tr>
+					<th>N°</th>
+					<th>Nom de fichier</th>
+					<th>Nom de gestionnaire</th>
+					<th>Instance</th>
+					<th>Date-Heure</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+			 <tr th:if="${opiList_indiv.empty}">
+                    <td colspan="3">Aucun OPI chargé</td>
+                </tr>
+				<tr th:each="opi : ${opiList_indiv}">
+				<td th:text="${opi.number}"></td>
+					<td th:text="${opi.title}"></td>
+					<td th:text="${opi.author}"></td>
+					<td th:text="${opi.instance}"></td>
+					<td th:text="${opi.dateTime}"></td>
+				</tr>
+			</tbody>
+		</table>
+			<h4>Historique de chargement des fichiers vœux</h4>
+		<table id="opiList_voeu" class="table table-bordered table-striped">
+			<thead class= "thead-dark">
+				<tr>
+					<th>N°</th>
+					<th>Nom de fichier</th>
+					<th>Nom de gestionnaire</th>
+					<th>Instance</th>
+					<th>Date-Heure</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+			 <tr th:if="${opiList_voeu.empty}">
+                    <td colspan="3">Aucun OPI chargé</td>
+                </tr>
+				<tr th:each="opi : ${opiList_voeu}">
+				<td th:text="${opi.number}"></td>
+					<td th:text="${opi.title}"></td>
+					<td th:text="${opi.author}"></td>
+					<td th:text="${opi.instance}"></td>
+					<td th:text="${opi.dateTime}"></td>
+				</tr>
+			</tbody>
+		</table>
+</div>
+
+</body>
+
+
+</html>

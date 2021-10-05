@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>CADOPI Files</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<style type="text/css">
+em {
+	font-weight: bold;
+	font-style: normal;
+	color: #f00;
+}
+
+div#erreur {
+	color: #FF0000;
+}
+
+div#succes1 {
+	color: #0000CD;
+}
+
+div#succes2 {
+	color: #0000CD;
+}
+img{
+    text-align:center;
+    margin:auto;
+    display:flex;
+}
+</style>
+</head>
+
+<body>
+	<!-- Include _menu.html -->
+	<th:block th:include="/_menu"></th:block>
+	<div class="container-fluid bg-light ">
+		<div class="row h-100 justify-content-center align-items-center">
+			<div class="col-sm-7"
+				style="background: #ecf0f1; margin: 3%; padding: auto; border: 1px solid #CCC; border-radius: 1em">
+				<br> 
+				<strong>
+					<div th:if="${dateDuJour!=null and !dateDuJour.isEmpty()}" th:text="${dateDuJour}"></div>
+				</strong> 
+				<br> 
+				<strong>
+					<div th:if="${chgtOpiSucces!=null and !chgtOpiSucces.isEmpty()}" th:text="${chgtOpiSucces}"></div>
+				</strong> <br>
+				<p>Veuillez se connecter à Apogée/domaine exploitation (important : un compte utilisateur autre que ADMIN) puis menu “Traitements différés/exploitation des OPI”. Dans la fenêtre choisir “chargement” puis “immédiat” et “Imprimante : “PDF par mail” (choix via F9 et sélection dans la liste)</p>
+				<br>
+				<img th:src="@{images/cnx_apogee.png}" alt="connexion_apogee">
+
+			</div>
+		</div>
+	</div>
+	</body>
+</html>
+

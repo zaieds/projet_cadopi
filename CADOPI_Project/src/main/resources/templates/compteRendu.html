@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Historique</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<style>
+.container.bg-light {
+	background: #ecf0f1;
+	margin-top: 5%;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+td, th /* Mettre une bordure sur les td ET les th */ {
+	border: 1px solid black;
+}
+</style>
+</head>
+<body>
+	<!-- Include _menu.html -->
+	<th:block th:include="/_menu"></th:block>
+		
+	<div class="container-fluid bg-light form-group">
+		<h4>Comptes rendus de chargement des OPIs</h4>
+		<table  class="table-borderless">
+			<tr>
+				<td style="vertical-align:top;">
+		<table class="table table-bordered table-striped">
+			<thead class= "thead-dark">
+				<tr>
+					<th>N°</th>
+					<th>Nom de fichier</th>
+				</tr>
+			</thead>
+			<tbody>
+			 <tr th:if="${compteRenduList_cr==null or compteRenduList_cr.empty}">
+                    <td colspan="3">Aucun Compte Rendu chargé</td>
+                </tr>
+				<tr th:each="cr : ${compteRenduList_cr}">
+					<td th:text="${cr.number}"></td>
+					<td>
+						<a th:href="@{'/compteRendu/' + ${cr.name}}"><div th:text="${cr.name}"></div></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+				</td>
+				<td th:if="${compteRendu_data!=null and !compteRendu_data.empty}">
+					<table class="table table-bordered table-striped">
+						<thead class= "thead-dark">
+						<tr>
+							<th>N° etu</th>
+							<th>Nom</th>
+							<th>Prénom</th>
+							<th>DDN</th>
+							<th>Etat</th>
+							<th>Statut</th>
+							<th>Erreur</th>
+							<th>Raison</th>
+							<th>Est</th>
+						</tr>
+						</thead>
+						<tr th:each="line : ${compteRendu_data}">
+							<td th:text="${line.noEtu}"></td>
+							<td th:text="${line.nom}"></td>
+							<td th:text="${line.prenom}"></td>
+							<td th:text="${line.dateNaissance}"></td>
+							<td th:text="${line.etat}"></td>
+							<td th:text="${line.statut}"></td>
+							<td th:text="${line.champsErreur}"></td>
+							<td th:text="${line.raison}"></td>
+							<td th:text="${line.est}"></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+
+</html>

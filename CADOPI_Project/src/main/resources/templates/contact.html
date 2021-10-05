@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title >Contact</title>
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+         form {
+            /* Uniquement centrer le formulaire sur la page */
+            background: #ecf0f1;
+            margin-top: 7%;
+            width: 500px;
+            position: relative;
+			top: 30px;
+			left: 650px;
+           
+            /* Encadré pour voir les limites du formulaire */
+            padding: 1em;
+            border: 1px solid #CCC;
+            border-radius: 1em;
+        }
+        p {
+            margin-top: 0px;
+        }
+
+        fieldset {
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+
+        legend {
+            padding: 0px 3px;
+            font-weight: bold;
+        }
+
+        label {
+            width: 110px;
+            display: inline-block;
+            vertical-align: top;
+            margin: 6px;
+        }
+
+        em {
+            font-weight: bold;
+            font-style: normal;
+            color: #f00;
+        }
+
+        input:focus {
+            background: #eaeaea;
+        }
+
+        input, textarea {
+            width: 249px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        select {
+            width: 254px;
+        }
+
+        input[type=checkbox] {
+            width: 10px;
+        }
+
+        input[type=submit] {
+            width: 110px;
+            padding: 8px
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Include _menu.html -->
+<th:block th:include="/_menu"></th:block>
+<div class="container-fluid bg-light ">
+<div class="mb-3">
+<form action="#">
+<!--     <div class="form-group"> -->
+<!--         <label for="nom">Nom <em>*</em></label> -->
+<!--          //placeholder: indication grisÃ©e
+<!--         //required: il faut renseigner le champs sinon la validation est bloquÃ©e -->
+<!--         //autofocus: le curseur est positionnÃ© dans cette case au chargement de la page-->
+<!--         <input class="form-control" id="nom" placeholder="" required=""><br> -->
+<!--         <label for="email">Email <em>*</em></label> -->
+<!--         <input class="form-control"id="email" type="email" placeholder="" required=""><br> -->
+<!--         <label for="comments">Message <em>*</em></label> -->
+<!--           <textarea class="form-control" aria-label="With textarea"></textarea> -->
+<!--         </div> -->
+<!--       <div class="col-auto"> -->
+<!--     <button class="btn btn-primary" type="submit">Envoyer</button> -->
+<!--   </div>  -->
+
+   
+
+<!--     <p><i>Les champs marqué par </i><em>*</em> sont <em>obligatoires</em></p> -->
+<article class="forecast">
+   <blockquote class="blockquote text-center">
+  <p class="mb-0">Bienvenue dans le site de chargement des OPIs</p>
+  <footer class="blockquote-footer">Contacts</footer>
+</blockquote>
+<br>
+<h4 class="text-center"><strong>service SAMIE-DSIM</strong></h4>
+<br>
+<dl class="row">
+  <dt class="col-sm-6">Mail : </dt>
+  <dd class="col-sm-5"> <a href="dsim-samie@grenet.fr">dsim-samie@grenet.fr</a></dd>
+
+  <dt class="col-sm-6">La DSIM dispose d'un gestionnaire de tickets : </dt>
+  <dd class="col-sm-5"><a href="https://help.grenet.fr/">https://help.grenet.fr/</a></dd>
+  </dl>
+ </article>
+</form>
+</div>
+</div>
+</body>
+</html>

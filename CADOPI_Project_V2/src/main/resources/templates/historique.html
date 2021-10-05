@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Historique</title>
+    <style>
+        form {
+            /* Uniquement centrer le formulaire sur la page */
+            margin: 0 auto;
+            width: 800px;
+            /* Encadré pour voir les limites du formulaire */
+            padding: 1em;
+            border: 1px solid #CCC;
+            border-radius: 1em;
+        }
+        table
+        {
+            border-collapse: collapse;
+        }
+        td, th /* Mettre une bordure sur les td ET les th */
+        {
+            border: 1px solid black;
+        }
+        caption
+        {
+            color : #0000FF;
+        }
+    </style>
+</head>
+<body>
+<!-- Include _menu.html -->
+<th:block th:include="/_menu"></th:block>
+
+<form action="/ma-page-de-traitement" method="post">
+    <div>
+        <label for="site-search"></label>
+        <input type="search" id="site-search" name="q"
+               aria-label="Search through site content">
+
+        <button>chercher</button>
+        <form name='#' th:action="@{/historique}">
+
+            <table  border width=90%>
+                <p>
+                    <caption> Historique des compte rendus || {nom de l'instance} </caption>
+
+                </p>
+                <tr>
+                    <th>N°</th>
+                    <th>Nom de fichier</th>
+                    <th>Date</th>
+                    <th>heure</th>
+                </tr>
+                <tr>
+
+                    <td>1</td>
+                    <td>exemple_1.dat</td>
+                    <td>04/09/2019</td>
+                    <td>10:15</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>exemple_2.dat</td>
+                    <td>20/10/2020</td>
+                    <td>14:30</td>
+                </tr>
+            </table>
+
+    </div>
+</form>
+</body>
+
+</html>

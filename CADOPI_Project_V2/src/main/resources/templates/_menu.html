@@ -1,0 +1,18 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<div class="p-3 mb-2 bg-warning" xmlns:th="http://www.thymeleaf.org "
+	style="border: 1px solid #ccc;padding:20px;margin-bottom:50px;" >
+     
+    <!-- <img src="cadopi_logo.png" class="img-thumbnail" style=width:100% alt="CADOPI"/> -->
+
+    <a th:if="${#request.userPrincipal ==null}" th:href="@{/login}"  class="text-dark">Connexion</a>
+
+    | &nbsp;
+    <a th:href="@{/historique}"  class="text-dark">Historique</a>
+
+    | &nbsp;
+    <a th:href="@{/contact}"  class="text-dark">Contact</a>
+
+    | &nbsp;
+    <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}"  class="text-dark">Déconnexion</a>
+
+</div>

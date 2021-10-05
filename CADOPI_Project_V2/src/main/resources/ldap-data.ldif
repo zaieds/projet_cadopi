@@ -1,0 +1,19 @@
+dn: dc=agalan,dc=org
+objectclass: top
+objectclass: domain
+objectclass: extensibleObject
+dc: agalan
+
+dn: ou=uga,dc=agalan,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: uga
+
+
+dn: cn=submanagers, ou=subgroups,ou=uga,dc=agalan,dc=org
+objectclass: top
+objectclass: groupOfUniqueNames
+cn: submanagers
+ou: submanager
+uniqueMember: uid=panoptes,ou=uga,dc=agalan,dc=org
+userPassword: phu,ngei]yohxaebu-jahzu(hu

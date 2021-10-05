@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+>
+<head>
+    <title>CADOPI Files</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style type="text/css">
+     h3 {
+            margin: 0 auto;
+            }
+    em {
+            font-weight: bold;
+            font-style: normal;
+            color: #f00;
+        }
+    div#erreur {
+	        color:#FF0000;
+	}
+    div#succes {
+	        color:#0000CD;
+	}
+	p {
+      color: red;
+    }
+
+    </style>
+    <script>
+    function resetImageField() {
+        var $el = $('#uploadfile2');
+        $el.wrap('<form>').closest('form').get(0).reset();
+        $el.unwrap();
+    }
+    </script>
+</head>
+
+<body>
+<!-- Include _menu.html -->
+<th:block th:include="/_menu"></th:block>
+<div class="container-fluid bg-light ">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-sm-5"
+             style="background:#ecf0f1; margin-top:5%;
+             margin: 5% 0;
+      		 padding: 1em;
+            border: 1px solid #CCC;
+            border-radius: 1em">
+            <h3 class="p3">Chargement des OPIs </h3>
+            <p> Veuillez vous assurer qu'aucun autre chargement d'OPI est en cours</p>
+            <p>Le nom de fichier ne doit contenir que des lettres (majustcule et minuscule), des chiffres, "." , "-" et "_"</p>
+           
+            <br>
+            <form th:action="@{/chargtOPI}" method="post" enctype="multipart/form-data" id="uploadForm">
+                <div>
+                    <label th:for="instance">Veuillez sélectionner une instance <em>*</em> </label>
+                    <select id="instance" name="instance" required="required">
+                        <option th:each="instance : ${nomInstance}"
+                                th:value="${instance.key}"
+                                th:utext="${instance.value}">
+                        </option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label th:for="uploadfile1" class="form-label">Fichier individu.dat : <em>*</em></label>
+                    <input type="file" class="form-control" placeholder="Upload File" id="uploadfile1" name="uploadfile"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label  th:for="uploadfile2" class="form-label">Fichier voeu.dat :</label>
+                    <input type="file" class="form-control" placeholder="Upload File" id="uploadfile2"
+                           name="uploadfile">
+                </div>
+                <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Lancer</button>
+                <button class="btn btn-primary" onclick="resetImageField()">Annuler le fichier voeux.dat et Lancer
+                </button>
+                </div>
+            </form>
+            <br>
+             <div id="erreur" th:if="${chgtOpiErreur!=null and !chgtOpiErreur.isEmpty()}" th:text="${chgtOpiErreur}">
+            </div>
+            
+        </div>
+    </div>
+    <div th:if="${messages!=null and !messages.isEmpty()}"
+         class="row h-100 justify-content-center align-items-center">
+        <div class="row col-sm-5"
+             style="background-color: yellow; margin: 5px; padding: 7px; border: solid 1px black; border-radius: 3px">
+            <ul th:each="message : ${messages}">
+                <li th:text="${message}"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
